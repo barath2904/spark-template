@@ -9,7 +9,7 @@ class SparkExampleTest(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.spark = SparkSession.builder.master("local[3]").appName("Testing spark_example").getOrCreate()
+        cls.spark = SparkSession.builder.master("local").appName("Testing spark_example").getOrCreate()
         cls.logger = Log4j(cls.spark)
         cls.spark_example = SampleSparkProcessing(cls.logger)
 
