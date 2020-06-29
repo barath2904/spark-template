@@ -18,9 +18,3 @@ def get_spark_session():
         return spark
     except Exception as spark_error:
         print(spark_error)
-
-
-
-
-
-
