@@ -1,4 +1,5 @@
+mock==4.0.2
+py4j==0.10.7
 pypandoc==1.5
 pyspark==2.4.6
 pyspark-stubs==2.4.0.post8
-mock
