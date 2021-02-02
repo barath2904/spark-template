@@ -5,6 +5,7 @@ from pyspark.sql.functions import col, mean, round
 
 class SampleSparkProcessing:
     def __init__(self, logger):
+        # app specific custom logging configured spark-defaults.conf
         self.logger = logger
 
     def read_data(self, spark, data_file):
@@ -40,8 +41,8 @@ def main():
     # including input() to hold spark UI
     # input("press enter to close spark")
     logger.info("Sample Spark program execution completed")
-    # commenting spark.stop() to avoid py4J network error
-    # spark.stop()
+    # spark.stop() commented to avoid sporadic py4J network error
+    spark.stop()
 
 
 if __name__ == "__main__":

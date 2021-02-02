@@ -6,8 +6,9 @@ mock==4.0.2
 more-itertools==8.4.0
 packaging==20.4
 pluggy==0.13.1
+psutil==5.7.0
 py==1.9.0
-py4j==0.10.9
+py4j==0.10.7
 pypandoc==1.5
 pyparsing==2.4.7
 pyspark==2.4.6
