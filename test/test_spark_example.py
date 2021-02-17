@@ -13,7 +13,7 @@ class SparkExampleTest(TestCase):
         cls.spark = SparkSession.builder.master("local").appName("Testing spark_example").getOrCreate()
         cls.logger = Log4j(cls.spark)
         cls.spark_example = SampleSparkProcessing(cls.logger)
-        # suppresses if any object allocation resource warnings are encountered which can be ignored
+        # suppresses if any object allocation resource warnings are encountered
         warnings.simplefilter('ignore', ResourceWarning)
 
     def test_read_data(self):
