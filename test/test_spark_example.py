@@ -3,6 +3,7 @@ from pyspark.sql import SparkSession
 from spark_example import SampleSparkProcessing
 from starters.spark_logger import Log4j
 import warnings
+import unittest
 
 
 class SparkExampleTest(TestCase):
@@ -33,6 +34,7 @@ class SparkExampleTest(TestCase):
         result_value = processed_df.collect()[0][1]
         self.assertEqual(result_value, 1500.0, "Average should be 1500.0")
 
+    @unittest.skip("test_display_data skipped")
     def test_display_data(self):
         pass
 
