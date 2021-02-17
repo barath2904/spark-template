@@ -2,6 +2,7 @@ from unittest import TestCase
 from pyspark.sql import SparkSession
 from spark_example import SampleSparkProcessing
 from starters.spark_logger import Log4j
+import warnings
 
 
 class SparkExampleTest(TestCase):
@@ -12,6 +13,8 @@ class SparkExampleTest(TestCase):
         cls.spark = SparkSession.builder.master("local").appName("Testing spark_example").getOrCreate()
         cls.logger = Log4j(cls.spark)
         cls.spark_example = SampleSparkProcessing(cls.logger)
+        # suppresses if any object allocation resource warnings are encountered which can be ignored
+        warnings.simplefilter('ignore', ResourceWarning)
 
     def test_read_data(self):
         sample_df = SampleSparkProcessing.read_data(self.spark_example, self.spark, "data/sample.csv")
@@ -33,7 +36,7 @@ class SparkExampleTest(TestCase):
     def test_display_data(self):
         pass
 
-    # commenting to avoid py4J network error
-    # @classmethod
-    # def tearDownClass(cls) -> None:
-    #     cls.spark.stop()
+    # can be commented if py4J network error encountered
+    @classmethod
+    def tearDownClass(cls) -> None:
+        cls.spark.stop()
